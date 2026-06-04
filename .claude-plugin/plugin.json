@@ -1,0 +1,38 @@
+{
+  "name": "claude-pager",
+  "description": "Native desktop notifications when Claude Code needs your attention",
+  "version": "1.0.0",
+  "hooks": "hooks/hooks.json",
+  "userConfig": {
+    "idle_enabled": {
+      "type": "string",
+      "title": "Idle notifications",
+      "description": "Enable notifications when Claude waits for input (on/off)"
+    },
+    "permission_enabled": {
+      "type": "string",
+      "title": "Permission notifications",
+      "description": "Enable notifications when Claude needs permission (on/off)"
+    },
+    "completion_enabled": {
+      "type": "string",
+      "title": "Completion notifications",
+      "description": "Enable notifications when a task completes (on/off)"
+    },
+    "idle_sound": {
+      "type": "string",
+      "title": "Idle sound preset",
+      "description": "Sound for idle events: default, ping, glass, pop, hero, none"
+    },
+    "permission_sound": {
+      "type": "string",
+      "title": "Permission sound preset",
+      "description": "Sound for permission events: default, ping, glass, pop, hero, none"
+    },
+    "completion_sound": {
+      "type": "string",
+      "title": "Completion sound preset",
+      "description": "Sound for completion events: default, ping, glass, pop, hero, none"
+    }
+  }
+}
