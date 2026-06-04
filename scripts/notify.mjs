@@ -1,6 +1,12 @@
 // scripts/notify.mjs
-import { readFileSync } from 'node:fs';
+import { readFileSync, appendFileSync } from 'node:fs';
 import { basename } from 'node:path';
+import { tmpdir } from 'node:os';
+
+const DEBUG_LOG = `${tmpdir()}/claude-pager-debug.log`;
+function debug(msg, data) {
+  try { appendFileSync(DEBUG_LOG, `[${new Date().toISOString()}] ${msg}${data !== undefined ? ': ' + JSON.stringify(data) : ''}\n`); } catch {}
+}
 import { loadConfig } from './config.mjs';
 import { detectPlatform, sendNotification } from './platforms.mjs';
 import { resolveSound, playSound } from './sounds.mjs';
@@ -22,8 +28,8 @@ export function classifyEvent(payload) {
 }
 
 export function buildTitle(payload) {
-  if (payload.cwd) return basename(payload.cwd);
-  return 'Claude Code';
+  if (payload.cwd) return `Claude Pager - ${basename(payload.cwd)}`;
+  return 'Claude Pager';
 }
 
 function extractToolSummary(payload) {

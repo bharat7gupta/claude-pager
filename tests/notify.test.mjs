@@ -45,16 +45,16 @@ describe('classifyEvent', () => {
 });
 
 describe('buildTitle', () => {
-  it('extracts basename from cwd', () => {
-    assert.strictEqual(buildTitle({ cwd: '/Users/me/projects/my-app' }), 'my-app');
+  it('extracts basename from cwd with prefix', () => {
+    assert.strictEqual(buildTitle({ cwd: '/Users/me/projects/my-app' }), 'Claude Pager - my-app');
   });
 
-  it('falls back to "Claude Code" when cwd is missing', () => {
-    assert.strictEqual(buildTitle({}), 'Claude Code');
+  it('falls back to "Claude Pager" when cwd is missing', () => {
+    assert.strictEqual(buildTitle({}), 'Claude Pager');
   });
 
-  it('falls back to "Claude Code" when cwd is empty', () => {
-    assert.strictEqual(buildTitle({ cwd: '' }), 'Claude Code');
+  it('falls back to "Claude Pager" when cwd is empty', () => {
+    assert.strictEqual(buildTitle({ cwd: '' }), 'Claude Pager');
   });
 });
 
