@@ -12,11 +12,8 @@ describe('classifyEvent', () => {
     assert.strictEqual(result, 'idle');
   });
 
-  it('classifies Notification + permission_prompt as permission', () => {
-    const result = classifyEvent({
-      hook_event_name: 'Notification',
-      notification_type: 'permission_prompt',
-    });
+  it('classifies PermissionRequest as permission', () => {
+    const result = classifyEvent({ hook_event_name: 'PermissionRequest' });
     assert.strictEqual(result, 'permission');
   });
 
@@ -95,8 +92,21 @@ describe('buildBody', () => {
     assert.strictEqual(body, 'Needs permission');
   });
 
-  it('returns static text for completion', () => {
+  it('returns static text for completion with no message', () => {
     const body = buildBody('completion', {});
     assert.strictEqual(body, 'Task complete');
+  });
+
+  it('uses first line of last_assistant_message for completion', () => {
+    const body = buildBody('completion', {
+      last_assistant_message: 'Committed as 3e4931e on main\n\nMore details here',
+    });
+    assert.strictEqual(body, 'Committed as 3e4931e on main');
+  });
+
+  it('truncates long last_assistant_message at 100 chars', () => {
+    const long = 'A'.repeat(120);
+    const body = buildBody('completion', { last_assistant_message: long });
+    assert.strictEqual(body, 'A'.repeat(100) + '...');
   });
 });

@@ -2,7 +2,19 @@
   "hooks": {
     "Notification": [
       {
-        "matcher": "idle_prompt|permission_prompt",
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/notify.mjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
         "hooks": [
           {
             "type": "command",

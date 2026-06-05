@@ -1,12 +1,6 @@
 // scripts/notify.mjs
-import { readFileSync, appendFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { basename } from 'node:path';
-import { tmpdir } from 'node:os';
-
-const DEBUG_LOG = `${tmpdir()}/claude-pager-debug.log`;
-function debug(msg, data) {
-  try { appendFileSync(DEBUG_LOG, `[${new Date().toISOString()}] ${msg}${data !== undefined ? ': ' + JSON.stringify(data) : ''}\n`); } catch {}
-}
 import { loadConfig } from './config.mjs';
 import { detectPlatform, sendNotification } from './platforms.mjs';
 import { resolveSound, playSound } from './sounds.mjs';
@@ -16,9 +10,10 @@ export function classifyEvent(payload) {
 
   if (hook_event_name === 'Notification') {
     if (notification_type === 'idle_prompt') return 'idle';
-    if (notification_type === 'permission_prompt') return 'permission';
     return null;
   }
+
+  if (hook_event_name === 'PermissionRequest') return 'permission';
 
   if (hook_event_name === 'Stop' || hook_event_name === 'TaskCompleted') {
     return 'completion';
@@ -54,6 +49,11 @@ export function buildBody(eventType, payload) {
     return extractToolSummary(payload) || payload.message || 'Needs permission';
   }
 
+  // completion
+  if (payload.last_assistant_message) {
+    const firstLine = payload.last_assistant_message.split('\n')[0].trim();
+    if (firstLine) return firstLine.length > 100 ? firstLine.slice(0, 100) + '...' : firstLine;
+  }
   return 'Task complete';
 }
 

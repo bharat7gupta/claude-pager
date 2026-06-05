@@ -64,7 +64,7 @@ Set any `*_enabled` to `"off"` to disable that notification type.
 
 | Platform | Notification | Sound | Notes |
 |---|---|---|---|
-| **macOS** | `osascript` display notification | `afplay` | Works out of the box |
+| **macOS** | `terminal-notifier` or `osascript` | `afplay` | Works out of the box. `brew install terminal-notifier` for clickable notifications |
 | **Linux** | `notify-send` | `paplay` / `aplay` | Requires `libnotify` package |
 | **Windows** | PowerShell NotifyIcon balloon | PowerShell SystemSounds | Optional: install `BurntToast` module for modern toasts |
 

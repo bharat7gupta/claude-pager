@@ -1,6 +1,19 @@
 // scripts/platforms.mjs
-import { spawn } from 'node:child_process';
+import { spawn, execFileSync } from 'node:child_process';
 import { platform } from 'node:os';
+
+let _hasTerminalNotifier;
+function hasTerminalNotifier() {
+  if (_hasTerminalNotifier === undefined) {
+    try {
+      execFileSync('which', ['terminal-notifier'], { stdio: 'ignore' });
+      _hasTerminalNotifier = true;
+    } catch {
+      _hasTerminalNotifier = false;
+    }
+  }
+  return _hasTerminalNotifier;
+}
 
 export function detectPlatform() {
   return platform();
@@ -23,6 +36,9 @@ function escapeAppleScript(str) {
 
 export function buildNotificationCommand(plat, title, body) {
   if (plat === 'darwin') {
+    if (hasTerminalNotifier()) {
+      return { command: 'terminal-notifier', args: ['-title', title, '-message', body, '-group', 'claude-pager'] };
+    }
     const escaped = `display notification "${escapeAppleScript(body)}" with title "${escapeAppleScript(title)}"`;
     return { command: 'osascript', args: ['-e', escaped] };
   }
