@@ -53,11 +53,13 @@ Set any `*_enabled` to `"off"` to disable that notification type.
 
 | Preset | Description |
 |---|---|
-| `default` | Per-event default (idle=hero, permission=ping, completion=glass) |
-| `ping` | Subtle ping |
+| `default` | Per-event default (idle=blow, permission=funk, completion=glass) |
+| `blow` | Warm, noticeable |
+| `funk` | Short, attention-grabbing |
 | `glass` | Satisfying ding |
+| `ping` | Subtle ping |
 | `pop` | Quick pop |
-| `hero` | Attention-grabbing |
+| `hero` | Bold alert |
 | `none` | Silent — visual notification only |
 
 ## Platform Support

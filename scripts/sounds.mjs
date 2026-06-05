@@ -2,28 +2,34 @@
 import { spawn } from 'node:child_process';
 
 const EVENT_DEFAULTS = {
-  idle: 'hero',
-  permission: 'ping',
+  idle: 'blow',
+  permission: 'funk',
   completion: 'glass',
 };
 
 const MACOS_SOUNDS = {
-  ping: 'Ping.aiff',
+  blow: 'Blow.aiff',
+  funk: 'Funk.aiff',
   glass: 'Glass.aiff',
+  ping: 'Ping.aiff',
   pop: 'Pop.aiff',
   hero: 'Hero.aiff',
 };
 
 const LINUX_SOUNDS = {
-  ping: 'bell.oga',
+  blow: 'dialog-warning.oga',
+  funk: 'bell.oga',
   glass: 'dialog-information.oga',
+  ping: 'bell.oga',
   pop: 'message-new-instant.oga',
   hero: 'complete.oga',
 };
 
 const WINDOWS_SOUNDS = {
-  ping: 'Beep',
+  blow: 'Question',
+  funk: 'Exclamation',
   glass: 'Asterisk',
+  ping: 'Beep',
   pop: 'Exclamation',
   hero: 'Hand',
 };

@@ -4,12 +4,12 @@ import assert from 'node:assert/strict';
 import { resolveSound, buildSoundCommand } from '../scripts/sounds.mjs';
 
 describe('resolveSound', () => {
-  it('resolves "default" for idle to hero', () => {
-    assert.strictEqual(resolveSound('default', 'idle'), 'hero');
+  it('resolves "default" for idle to blow', () => {
+    assert.strictEqual(resolveSound('default', 'idle'), 'blow');
   });
 
-  it('resolves "default" for permission to ping', () => {
-    assert.strictEqual(resolveSound('default', 'permission'), 'ping');
+  it('resolves "default" for permission to funk', () => {
+    assert.strictEqual(resolveSound('default', 'permission'), 'funk');
   });
 
   it('resolves "default" for completion to glass', () => {
