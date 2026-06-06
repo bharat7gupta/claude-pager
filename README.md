@@ -25,6 +25,8 @@ Each notification shows your **project name** in the title so you know which ses
 
 <img src="assets/task-completion.webp" alt="Task completion notification" width="500">
 
+<img src="assets/task-completion-2.png" alt="Task completion notification with summary" width="500">
+
 ## Configuration
 
 After install, configure via `pluginConfigs` in `~/.claude/settings.json`:

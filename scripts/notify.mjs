@@ -52,7 +52,7 @@ export function buildBody(eventType, payload) {
   // completion
   if (payload.last_assistant_message) {
     const firstLine = payload.last_assistant_message.split('\n')[0].trim();
-    if (firstLine) return firstLine.length > 100 ? firstLine.slice(0, 100) + '...' : firstLine;
+    if (firstLine) return firstLine.length > 120 ? firstLine.slice(0, 120) + '...' : firstLine;
   }
   return 'Task complete';
 }

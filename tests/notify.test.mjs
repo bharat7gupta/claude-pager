@@ -104,9 +104,9 @@ describe('buildBody', () => {
     assert.strictEqual(body, 'Committed as 3e4931e on main');
   });
 
-  it('truncates long last_assistant_message at 100 chars', () => {
-    const long = 'A'.repeat(120);
+  it('truncates long last_assistant_message at 120 chars', () => {
+    const long = 'A'.repeat(140);
     const body = buildBody('completion', { last_assistant_message: long });
-    assert.strictEqual(body, 'A'.repeat(100) + '...');
+    assert.strictEqual(body, 'A'.repeat(120) + '...');
   });
 });
