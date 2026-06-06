@@ -1,0 +1,14 @@
+{
+  "name": "claude-pager",
+  "owner": {
+    "name": "Bharat Gupta"
+  },
+  "plugins": [
+    {
+      "name": "claude-pager",
+      "source": "./",
+      "description": "Native Desktop notifications when Claude Code needs your attention",
+      "version": "1.0.0"
+    }
+  ]
+}
