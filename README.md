@@ -1,28 +1,29 @@
-# claude-pager
+<h1 align="center"><img src="assets/icon.svg" alt="claude-pager icon" width="36" height="36" align="center"> Claude Pager</h1>
 
-Native desktop notifications for Claude Code. Get alerted when a session needs your attention — permission prompts, idle waits, or task completion.
+<p align="center">Native desktop notifications for Claude Code. Get alerted when a session needs your attention — permission prompts, idle waits, or task completion.</p>
 
 ## Install
 
 ```bash
-claude plugin install claude-pager
-```
-
-Or for local development:
-
-```bash
+git clone https://github.com/bharat7gupta/claude-pager.git
 claude --plugin-dir ./claude-pager
 ```
 
 ## What It Does
 
-| Event | When | Notification |
-|---|---|---|
-| **Permission** | Claude needs tool approval | Shows the tool + command being requested |
-| **Idle** | Claude is waiting for your input | Shows the question Claude is asking |
-| **Completion** | A task finishes | "Task complete" |
+Each notification shows your **project name** in the title so you know which session to switch to.
 
-Each notification shows your **project name** as the title so you know which session to switch to.
+### Permission — Claude needs tool approval
+
+<img src="assets/permission.webp" alt="Permission notification" width="500">
+
+### Idle — Claude is waiting for your input
+
+<img src="assets/idle.png" alt="Idle notification" width="500">
+
+### Task Completion — Claude finished working
+
+<img src="assets/task-completion.webp" alt="Task completion notification" width="500">
 
 ## Configuration
 
