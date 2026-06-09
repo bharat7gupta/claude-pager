@@ -1,4 +1,4 @@
-<h1 align="center"><img src="assets/icon.svg" alt="claude-pager icon" width="36" height="36" align="center"> Claude Pager</h1>
+<h1 align="center"><img src="https://i.ibb.co/jPRMBm30/icon.jpg" alt="claude-pager icon" width="36" height="36" align="center"> Claude Pager</h1>
 
 <p align="center">Native desktop notifications for Claude Code. Get alerted when a session needs your attention — permission prompts, idle waits, or task completion.</p>
 
@@ -15,17 +15,17 @@ Each notification shows your **project name** in the title so you know which ses
 
 ### Permission — Claude needs tool approval
 
-<img src="assets/permission.webp" alt="Permission notification" width="500">
+<img src="https://i.ibb.co/QFRXF8w8/permission.webp" alt="Permission notification" width="500">
 
 ### Idle — Claude is waiting for your input
 
-<img src="assets/idle.png" alt="Idle notification" width="500">
+<img src="https://i.ibb.co/nNxn5GzD/idle.png" alt="Idle notification" width="500">
 
 ### Task Completion — Claude finished working
 
-<img src="assets/task-completion.webp" alt="Task completion notification" width="500">
+<img src="https://i.ibb.co/WNTYt00M/task-completion.webp" alt="Task completion notification" width="500">
 
-<img src="assets/task-completion-2.png" alt="Task completion notification with summary" width="500">
+<img src="https://i.ibb.co/Jw5xWwCX/task-completion-2.jpg" alt="Task completion notification with summary" width="500">
 
 ## Configuration
 
